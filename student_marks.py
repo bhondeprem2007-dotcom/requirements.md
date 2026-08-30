@@ -13,28 +13,27 @@ def calculate_grade(percentage):
         return "F"
 
 
-marks = []
+if __name__ == "__main__":
+    marks = []
 
-for i in range(5):
-    while True:
-        try:
-            mark = float(input(f"Enter marks for subject {i + 1} (0-100): "))
+    for i in range(5):
+        while True:
+            try:
+                mark = float(input(f"Enter marks for subject {i + 1} (0-100): "))
 
-            if 0 <= mark <= 100:
-                marks.append(mark)
-                break
-            else:
-                print("Marks must be between 0 and 100.")
+                if 0 <= mark <= 100:
+                    marks.append(mark)
+                    break
+                else:
+                    print("Marks must be between 0 and 100.")
 
-        except ValueError:
-            print("Please enter a valid number.")
+            except ValueError:
+                print("Please enter a valid number.")
 
+    total = sum(marks)
+    percentage = total / 5
 
-total = sum(marks)
-percentage = total / 5
-grade = calculate_grade(percentage)
-
-print("\n--- Student Result ---")
-print("Total Marks:", total, "/ 500")
-print("Percentage:", percentage, "%")
-print("Grade:", grade)
+    print("\n--- Student Result ---")
+    print("Total Marks:", total, "/ 500")
+    print("Percentage:", percentage, "%")
+    print("Grade:", calculate_grade(percentage))
